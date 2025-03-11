@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 02</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="asset/icons8-2-64.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div id="hero">
+        <div class="navbar">
+            <img src="asset/logo.png" class="logo">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="asset/user.png">
+            </div>
+        </div>
+
+        <div class="conteiner">
+            <div class="info">
+                <h1>DISCOVER</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi provident doloremque<br> inventore,
+                    quos tempore maxime sapiente est ea! Ad omnis iusto nam laboriosam eos.<br> Velit enim
+                    necessitatibus iste. Et, vel.</p>
+                <input type="text" placeholder="search">
+            </div>
+        </div>
+
+        <div class="slider">
+            <img src="asset/left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="asset/small1.png" class="active thumbnail">
+                <img src="asset/small2.png" class="thumbnail">
+                <img src="asset/small3.png" class="thumbnail">
+                <img src="asset/small4.png" class="thumbnail">
+                <img src="asset/small5.png" class="thumbnail">
+            </div>
+            <img src="asset/right-arrow.png" id="next">
+        </div>
+
+    </div>
+
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array(
+            "asset/bg1.png",
+            "asset/bg2.png",
+            "asset/bg3.png",
+            "asset/bg4.png",
+            "asset/bg5.png",
+        );
+        let i = 0;
+        next.onclick = function () {
+
+            if (i < 4) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i + 1] + '")';
+                thumbnail[i + 1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+
+        }
+
+        prev.onclick = function () {
+
+            if (i > 0) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i - 1] + '")';
+                thumbnail[i - 1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
